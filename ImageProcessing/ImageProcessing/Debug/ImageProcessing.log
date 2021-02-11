@@ -1,0 +1,2 @@
+﻿  Composite.cpp
+c:\users\kim hyojin\documents\visual studio 2017\projects\imageprocessing\imageprocessing\composite.cpp(1): fatal error C1083: 포함 파일을 열 수 없습니다. 'opencv2/core/core.hpp': No such file or directory

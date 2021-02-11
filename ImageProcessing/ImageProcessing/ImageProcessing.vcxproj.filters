@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Blurring_Sharpening.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Brightness.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Composite.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ContrastStretching.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Edge_Detection.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Histogram_Equalization.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Labeling.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Mosaic.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Template_Matchng.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="cmp1.jpg">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="cmp2.jpg">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="cstest.JPG">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="edd.jpg">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="flower.jpg">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="girl.jpg">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="heq.jpg">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="lena.jpg">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="lena2.jpg">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="matching.jpg">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="num.jpg">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="num2.jpg">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="number.jpg">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="pasta.jpg">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="ref.jpg">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="source.jpg">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="template.jpg">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="two.jpg">
+      <Filter>리소스 파일</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
