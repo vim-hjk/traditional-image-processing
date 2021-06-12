@@ -12,6 +12,7 @@
 - [Edge Detection](#EdgeDetection)<br>
 - [Template Matching](#TemplateMatching)<br>
 - [Labeling](#Labeling)<br>
+- [Future Work](#FutureWork)<br>
 ---
 <br></br>
 ## ⚙ Environment Setting <a name = 'EnvironmentSetting'></a>
@@ -90,3 +91,9 @@
 - `Labeling.cpp`
 ### Result
 ![Labeling](./image/labeling.png)
+---
+<br></br>
+## 📢 Future Work <a name = 'FutureWork'></a>
+- [ ] Erosion
+- [ ] Dilation
+
