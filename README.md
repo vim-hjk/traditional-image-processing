@@ -12,7 +12,7 @@
 - [Edge Detection](#EdgeDetection)<br>
 - [Template Matching](#TemplateMatching)<br>
 - [Labeling](#Labeling)<br>
-- [Future Work](#FutureWork)<br>
+- [TODO](#TODO)<br>
 ---
 <br></br>
 ## ⚙ Environment Setting <a name = 'EnvironmentSetting'></a>
@@ -93,7 +93,17 @@
 ![Labeling](./image/labeling.png)
 ---
 <br></br>
-## 📢 Future Work <a name = 'FutureWork'></a>
+## 📢 TODO <a name = 'TODO'></a>
+- [x] Brightness & Darkness
+- [x] Composition
+- [x] Contrast Stretching
+- [x] Mosaic
+- [x] Histogram Equalization
+- [x] Blurring & Sharpening
+- [x] Edge Detection
+- [x] Template Matching
+- [x] Labeling
 - [ ] Erosion
 - [ ] Dilation
+- [ ] Histogram Matching (Histogram Specification)
 
