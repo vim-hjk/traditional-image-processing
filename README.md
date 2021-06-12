@@ -77,7 +77,7 @@
 ### Diagonal kernel 2
 ![Vertical](./image/diagonal2.png)
 ### ALL kernel
-![all](./image/diagonal2.png)
+![all](./image/all.png)
 ---
 <br></br>
 ## ✅ Template Matching <a name = 'TemplateMatching'></a>
