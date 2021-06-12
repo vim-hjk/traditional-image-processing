@@ -1,5 +1,6 @@
 📦 Toy Box] Traditional Image Processing
-====<br></br>
+==== 
+<br></br>
 ## 📋 Table of content
 - [Environment Setting](#EnvironmentSetting)<br>
 - [Brightness & Darkness](#Brightness&Darkness)<br>
@@ -13,7 +14,7 @@
 - [Labeling](#Labeling)<br>
 ---
 <br></br>
-## Environment Setting <a name = 'EnvironmentSetting'></a>
+## ⚙ Environment Setting <a name = 'EnvironmentSetting'></a>
 - Microsoft Visual Studio 2017 (v141)
 - OpenCV == 3.4.1
 - Windows SDK version == 8.1
