@@ -1,5 +1,9 @@
 📦 Toy Box] Traditional Image Processing
 ==== 
+- This repository implements traditional image processing technologies as naive C++.
+- The OpenCV library is not used except for reading images or drawing histograms.
+- You can check the results through simple examples.
+- It can be helpful for people who are studying image processing for the first time.
 <br></br>
 ## 📋 Table of content
 - [Environment Setting](#EnvironmentSetting)<br>
