@@ -10,21 +10,21 @@ using namespace std;
 String imgname = "Original Image";
 String resultname = "Result Image";
 
-// ÀÌ¹ÌÁö µ¥ÀÌÅÍ ÀĞ±â ¹× °á°ú°ªÀ» ÀúÀåÇÒ Mat»ı¼º
+// ì´ë¯¸ì§€ ë°ì´í„° ì½ê¸° ë° ê²°ê³¼ê°’ì„ ì €ì¥í•  Matìƒì„±
 Mat orgimg = imread("./img/number.jpg", CV_LOAD_IMAGE_COLOR);
 Mat resultimg = Mat(orgimg.rows, orgimg.cols, CV_8UC3);
 
-// ÁÂÇ¥°ªÀ» ÀúÀåÇÏ±â À§ÇÑ ±¸Á¶Ã¼
+// ì¢Œí‘œê°’ì„ ì €ì¥í•˜ê¸° ìœ„í•œ êµ¬ì¡°ì²´
 struct location {
 	int y;
 	int x;
 };
 
-stack<location> Stack;	// ¹öÆÛ ½ºÅÃ
-int current_label = 0;	// ¶óº§ÀÇ ¹øÈ£¸¦ ºÙ¿©ÁÖ±â À§ÇÑ º¯¼ö
-stack<location> Label[6];	// ¶óº§ º° ½ºÅÃ ¹è¿­
+stack<location> Stack;	// ë²„í¼ ìŠ¤íƒ
+int current_label = 0;	// ë¼ë²¨ì˜ ë²ˆí˜¸ë¥¼ ë¶™ì—¬ì£¼ê¸° ìœ„í•œ ë³€ìˆ˜
+stack<location> Label[6];	// ë¼ë²¨ ë³„ ìŠ¤íƒ ë°°ì—´
 
-// µ¥ÀÌÅÍ ÀÏ¹İÈ­ 240º¸´Ù ¹àÀ¸¸é 255·Î ±×º¸´Ù ¾îµÎ¿ì¸é 0À¸·Î Á¶Á¤
+// ë°ì´í„° ì¼ë°˜í™” 240ë³´ë‹¤ ë°ìœ¼ë©´ 255ë¡œ ê·¸ë³´ë‹¤ ì–´ë‘ìš°ë©´ 0ìœ¼ë¡œ ì¡°ì •
 void Normalize() {
 	int B = 0, G = 0, R = 0;
 	int sum = 0;
@@ -50,56 +50,56 @@ void Normalize() {
 
 int main(int argc, char** argv) {	
 
-	// ÀÌ¹ÌÁö µ¥ÀÌÅÍ°¡ ¾øÀ» °æ¿ì
+	// ì´ë¯¸ì§€ ë°ì´í„°ê°€ ì—†ì„ ê²½ìš°
 	if (!orgimg.data) {
 		cout << "No Image data" << endl;
 		return -1;
 	}
 
-	//¿øº» ¿µ»ó º¸¿©ÁÖ±â
+	//ì›ë³¸ ì˜ìƒ ë³´ì—¬ì£¼ê¸°
 	imshow(imgname, orgimg);
-	// ¿øº» ¿µ»ó ÀÏ¹İÈ­
+	// ì›ë³¸ ì˜ìƒ ì¼ë°˜í™”
 	Normalize();
 	
-	// ÇöÀç À§Ä¡ÀÇ ºí·ç ÇÈ¼¿°ª ÀúÀå
+	// í˜„ì¬ ìœ„ì¹˜ì˜ ë¸”ë£¨ í”½ì…€ê°’ ì €ì¥
 	int pixel;
 	
 	for (int y = 0; y < orgimg.rows; y++) {
 		for (int x = 0; x < orgimg.cols; x++) {
 
-			// ÇöÀç À§Ä¡¸¦ ÀúÀåÇÒ º¯¼ö
+			// í˜„ì¬ ìœ„ì¹˜ë¥¼ ì €ì¥í•  ë³€ìˆ˜
 			location vector = { y, x };
-			// ÇöÀçÀ§Ä¡ÀÇ ºí·ç°ªÀ» ÀúÀåÇÒ º¯¼ö
+			// í˜„ì¬ìœ„ì¹˜ì˜ ë¸”ë£¨ê°’ì„ ì €ì¥í•  ë³€ìˆ˜
 			pixel = orgimg.at<Vec3b>(y, x)[0];
 
-			// ¶óº§¸µÀÌ ¾ÈµÈ °´Ã¼ÀÇ ½ÃÀÛÁ¡À» Ã³À½ ¹ß°ßÇßÀ» °æ¿ì
+			// ë¼ë²¨ë§ì´ ì•ˆëœ ê°ì²´ì˜ ì‹œì‘ì ì„ ì²˜ìŒ ë°œê²¬í–ˆì„ ê²½ìš°
 			if (Stack.empty() && pixel == 0) {
-				// ÀçÅ½»öÀ» ¹æÁöÇÏ±â À§ÇÏ¿© ¹ß°ß Áï½Ã ÇØ´ç À§Ä¡ ÇÈ¼¿À» Áö¿ò
+				// ì¬íƒìƒ‰ì„ ë°©ì§€í•˜ê¸° ìœ„í•˜ì—¬ ë°œê²¬ ì¦‰ì‹œ í•´ë‹¹ ìœ„ì¹˜ í”½ì…€ì„ ì§€ì›€
 				orgimg.at<Vec3b>(y, x)[0] = 255;
 				orgimg.at<Vec3b>(y, x)[1] = 255;
 				orgimg.at<Vec3b>(y, x)[2] = 255;
-				current_label += 1;	// ¶óº§¸µ
-				Stack.push(vector);	// ¹öÆÛ½ºÅÃ¿¡ push
+				current_label += 1;	// ë¼ë²¨ë§
+				Stack.push(vector);	// ë²„í¼ìŠ¤íƒì— push
 			}
 
-			// ¹è°æ»öÀ» °ËÁ¤»öÀ¸·Î ¹Ù²Ş
+			// ë°°ê²½ìƒ‰ì„ ê²€ì •ìƒ‰ìœ¼ë¡œ ë°”ê¿ˆ
 			if (pixel == 255) {			
 				resultimg.at<Vec3b>(y, x)[0] = 0;
 				resultimg.at<Vec3b>(y, x)[1] = 0;
 				resultimg.at<Vec3b>(y, x)[2] = 0;			
 			}
 
-			// ÇØ´ç ¶óº§ÀÇ °´Ã¼¸¦ ÀüºÎ Å½»öÇÒ ¶§ ±îÁö
+			// í•´ë‹¹ ë¼ë²¨ì˜ ê°ì²´ë¥¼ ì „ë¶€ íƒìƒ‰í•  ë•Œ ê¹Œì§€
 			while (!Stack.empty()) {
 				
-				// ¹öÆÛ½ºÅÃÀÇ top¿¡ ÀúÀåµÈ À§Ä¡¸¦ Å½»ö ½ÃÀÛÁöÁ¡À¸·Î ¹Ù²Û´Ù
+				// ë²„í¼ìŠ¤íƒì˜ topì— ì €ì¥ëœ ìœ„ì¹˜ë¥¼ íƒìƒ‰ ì‹œì‘ì§€ì ìœ¼ë¡œ ë°”ê¾¼ë‹¤
 				int j = Stack.top().y;
 				int i = Stack.top().x;
-				// ¹öÆÛ½ºÅÃÀÇ top¿¡ ÀúÀåµÈ À§Ä¡¸¦ ÇØ´ç¶óº§ ½ºÅÃ¿¡ pushÇÑ ÈÄ ¹öÆÛ½ºÅÃ pop
+				// ë²„í¼ìŠ¤íƒì˜ topì— ì €ì¥ëœ ìœ„ì¹˜ë¥¼ í•´ë‹¹ë¼ë²¨ ìŠ¤íƒì— pushí•œ í›„ ë²„í¼ìŠ¤íƒ pop
 				Label[current_label].push(Stack.top());
 				Stack.pop();
 				
-				// Left Å½»ö
+				// Left íƒìƒ‰
 				if (i > 0) {
 					if (orgimg.at<Vec3b>(j, i - 1)[0] == 0) {
 						orgimg.at<Vec3b>(j, i - 1)[0] = 255;
@@ -109,7 +109,7 @@ int main(int argc, char** argv) {
 					}
 				}
 				
-				// Right Å½»ö
+				// Right íƒìƒ‰
 				if (i < orgimg.cols) {
 					if (orgimg.at<Vec3b>(j, i + 1)[0] == 0) {
 						orgimg.at<Vec3b>(j, i + 1)[0] = 255;
@@ -119,7 +119,7 @@ int main(int argc, char** argv) {
 					}
 				}
 				
-				// Up Å½»ö
+				// Up íƒìƒ‰
 				if (j > 0) {
 					if (orgimg.at<Vec3b>(j - 1, i)[0] == 0) {
 						orgimg.at<Vec3b>(j - 1, i)[0] = 255;
@@ -129,7 +129,7 @@ int main(int argc, char** argv) {
 					}
 				}
 
-				// Down Å½»ö
+				// Down íƒìƒ‰
 				if (j < orgimg.rows) {
 					if (orgimg.at<Vec3b>(j + 1, i)[0] == 0) {
 						orgimg.at<Vec3b>(j + 1, i)[0] = 255;
@@ -138,17 +138,17 @@ int main(int argc, char** argv) {
 						Stack.push({ j + 1, i });
 					}					
 				}
-				// ¶óº§¸µÀÌ Á¦´ë·Î µÇ´Â Áö È®ÀÎÇÏ±â À§ÇÑ Ãâ·Â¹®
-				if (!Stack.empty()) {
-					cout << Stack.top().x << endl << Stack.top().y << endl << "\n" << endl;
-					cout << current_label << endl << Label[current_label].top().x << endl << Label[current_label].top().y << "\n" << endl;
-				}
+				//// ë¼ë²¨ë§ì´ ì œëŒ€ë¡œ ë˜ëŠ” ì§€ í™•ì¸í•˜ê¸° ìœ„í•œ ì¶œë ¥ë¬¸
+				//if (!Stack.empty()) {
+				//	cout << Stack.top().x << endl << Stack.top().y << endl << "\n" << endl;
+				//	cout << current_label << endl << Label[current_label].top().x << endl << Label[current_label].top().y << "\n" << endl;
+				//}
 				
 			}
 		}
 	}	
 	
-	// ¶óº§¸µÇÑ °´Ã¼¸¦ ¶óº§º°·Î »ö»óÀ» ¹Ù²Û´Ù.
+	// ë¼ë²¨ë§í•œ ê°ì²´ë¥¼ ë¼ë²¨ë³„ë¡œ ìƒ‰ìƒì„ ë°”ê¾¼ë‹¤.
 	for (int i = 1; i < current_label + 1; i++) {		
 		while (!Label[i].empty()) {
 
@@ -188,7 +188,7 @@ int main(int argc, char** argv) {
 		}		
 	}	
 	
-	// °á°ú¿µ»ó Ãâ·Â
+	// ê²°ê³¼ì˜ìƒ ì¶œë ¥
 	imshow(resultname, resultimg);
 	waitKey();
 }
