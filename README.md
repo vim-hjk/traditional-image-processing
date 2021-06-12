@@ -20,65 +20,62 @@
 ---
 ## ✨ Brightness & Darkness <a name = 'Brightness&Darkness'></a>
 - `Brightness.cpp`
-- [Brightness_Console](./image/bright_console.png)
+- ![Brightness_Console](./image/bright_console.png)
 ### Brightness
-[Brightness](./image/brightness.png)
+![Brightness](./image/brightness.png)
 ### Darkness
-[Darkness](./image/darkness.png)
+![Darkness](./image/darkness.png)
 ---
 ## ➕ Composition <a name = 'Composite'></a>
 - `Composite.cpp`
 ### Result
-[Composition](./image/composition.png)
+![Composition](./image/composition.png)
 ---
 ## 🎽 Contrast Stretching <a name = 'ContrastStretching'></a>
 - `ContrastStretching.cpp`
 ### Result
-[ContrastStretching](./image/contrast.png)
+![ContrastStretching](./image/contrast.png)
 ---
 ## 🌐 Mosaic <a name = 'Mosaic'></a>
 - `Mosaic.cpp`
 ### Result
-[Mosaic](./image/mosaic.png)
+![Mosaic](./image/mosaic.png)
 ---
 ## ⚖ Histogram Equalization <a name = 'HistogramEqualization'></a>
 - `Histogram_Equalization.cpp`
 ### Result
-[HistogramEqualization](./image/equalization.png)
+![HistogramEqualization](./image/equalization.png)
 ---
 ## 🔪 Blurring & Sharpening <a name = 'Blurring&Sharpening'></a>
 - `Blurring_Sharpening.cpp`
-- [Sharpening_Console](./image/sharpening_console.png)
+- ![Sharpening_Console](./image/sharpening_console.png)
 ### Blurring
-[Blurring](./image/blur.png)
+![Blurring](./image/blur.png)
 ### Sharpening - Laplacian kernel 1
-[Sharpening1](./image/sharp1.png)
+![Sharpening1](./image/sharp1.png)
 ### Sharpening - Laplacian kernel 2
-[Sharpening2](./image/sharp2.png)
+![Sharpening2](./image/sharp2.png)
 ---
 ## 🔍 Edge Detection <a name = 'EdgeDetection'></a>
 - `Edge_Detection.cpp`
-- [Edgedetection](./image/edge_console.png)
+- ![Edgedetection](./image/edge_console.png)
 ### Horizontal kernel
-[Horizontal](./image/horizontal.png)
+![Horizontal](./image/horizontal.png)
 ### Vertical kernel
-[Vertical](./image/vertical.png)
+![Vertical](./image/vertical.png)
 ### Diagonal kernel 1
-[Vertical](./image/diagonal1.png)
+![Vertical](./image/diagonal1.png)
 ### Diagonal kernel 2
-[Vertical](./image/diagonal2.png)
+![Vertical](./image/diagonal2.png)
 ### ALL kernel
-[all](./image/diagonal2.png)
+![all](./image/diagonal2.png)
 ---
 ## ✅ Template Matching <a name = 'TemplateMatching'></a>
 - `Template_Matchng.cpp`
 ### Result
-[TemplateMatching](./image/template.png)
+![TemplateMatching](./image/template.png)
 ---
 ## 🏷 Labeling <a name = 'Labeling'></a>
 - `Labeling.cpp`
 ### Result
-[Labeling](./image/labeling.png)
-
-
-
+![Labeling](./image/labeling.png)
